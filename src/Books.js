@@ -6,7 +6,7 @@ export default function Books() {
   const navigate = useNavigate();
   return (
     <div>
-      <h3>BOOKS LIST</h3>
+     
       <table>
         <thead>
           <tr>

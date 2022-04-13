@@ -17,8 +17,12 @@ export default function App() {
     <div>
       <libraryContext.Provider value={{ state, setState }}>
         <BrowserRouter>
-          <Link to="/books">Books List</Link>{' '}
-          <Link to="/create-book">Add a Book </Link>
+          <h3>
+            <Link to="/books">Books List</Link>
+          </h3>
+          <h3>
+            <Link to="/create-book">Add a Book </Link>
+          </h3>
           <Routes>
             <Route path="/" element={<Books />} />
             <Route path="/books" element={<Books />} />

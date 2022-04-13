@@ -1,3 +1,61 @@
-h1, p {
-  font-family: Lato;
+.App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: black;
+  width: 100px;
+  height: 45px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.nav-item:hover {
+  background-color: rgb(216, 215, 215);
+}
+
+.table-header {
+  background-color: rgb(75, 74, 74);
+  color: white;
+}
+.table-header-item {
+  text-align: center;
+  padding: 20px;
+}
+.table-row {
+  background-color: rgba(79, 235, 183, 0.788);
+  transition: 0.7s;
+}
+.table-row:hover {
+  background-color: rgba(79, 235, 183, 1);
+  transform: scale(1.01);
+}
+.table-row-item {
+  text-align: center;
+  padding: 20px;
+}
+.row-table {
+  display: block;
+}
+.column-table {
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  .column-table {
+    display: block;
+  }
+  .row-table {
+    display: none;
+  }
+  .nav-item {
+    padding: 5px;
+  }
 }

@@ -1,30 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { libraryContext } from './Context';
-import { FormComponent } from './Components';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditPage() {
   const navigate = useNavigate();
   const { state, setState } = useContext(libraryContext);
   let { id } = useParams();
-  const getData = (id) => {
+  const DeleteBook = (id) => {
     let obj =
       state &&
       state.filter((ele, i) => {
-        if (ele.id === id) {
+        if (ele.id !== id) {
           return ele;
         }
       });
-    return obj[0];
+    setState([...obj]);
+    navigate(-1);
   };
-  return (
-    <>
-      <FormComponent
-        props={getData(id)}
-        title={'EDIT BOOK'}
-        setState={setState}
-        state={state}
-      />
-    </>
-  );
+  useEffect(() => {
+    if (state && id) {
+      DeleteBook(id);
+    }
+  }, [id]);
+  return <></>;
 }

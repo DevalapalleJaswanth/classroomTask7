@@ -22,5 +22,4 @@ export default function EditPage() {
       DeleteBook(id);
     }
   }, [id]);
-  return <></>;
 }

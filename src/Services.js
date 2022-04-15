@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export function updateBookDetails(values, id) {
   try {
-    console.log(id, values);
     axios.post(`https://6215fab47428a1d2a3567953.mockapi.io/library/${id}`, {
       title: values.title,
       name: values.authorName,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { updateBookDetails, AddABook } from '../Services';
 
 const FormComponent = ({ props, title, setState, state }) => (
   <div>
@@ -33,6 +34,7 @@ const FormComponent = ({ props, title, setState, state }) => (
             state &&
             state.map((ele, i) => {
               if (ele.id === props.id) {
+                updateBookDetails(values, ele.id);
                 return {
                   title: values.title,
                   name: values.authorName,
@@ -48,7 +50,7 @@ const FormComponent = ({ props, title, setState, state }) => (
         }
         if (title === 'ADD BOOK') {
           let temp = state && [...state];
-
+          AddABook(values);
           temp.push({
             title: values.title,
             name: values.authorName,

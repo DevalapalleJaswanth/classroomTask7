@@ -8,14 +8,16 @@ import EditPage from './EditPage';
 import Delete from './Delete';
 import BookDetails from './BookDetails';
 import axios from 'axios';
+import { getBooks } from './Services';
 export default function App() {
   const [listClicked, setListClicked] = useState(true);
   const [addClicked, setAddClicked] = useState(false);
   const [state, setState] = useState([]);
   useEffect(() => {
-    let temp = axios
-      .get('https://6215fab47428a1d2a3567953.mockapi.io/library')
-      .then((resp) => setState(resp.data));
+    let temp = getBooks();
+    temp.then((data) => {
+      setState([...data]);
+    });
   }, []);
 
   return (

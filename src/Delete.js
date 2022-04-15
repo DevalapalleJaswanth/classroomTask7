@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { libraryContext } from './Context';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { deleteBook } from './Services';
 export default function EditPage() {
   const navigate = useNavigate();
   const { state, setState } = useContext(libraryContext);
@@ -20,6 +20,7 @@ export default function EditPage() {
   useEffect(() => {
     if (state && id) {
       DeleteBook(id);
+      deleteBook(id);
     }
   }, [id]);
 }
